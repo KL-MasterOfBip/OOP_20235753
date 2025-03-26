@@ -30,7 +30,7 @@ public class Cart {
 				j ++;
 			}
 			if (j > conlai)
-				System.out.println("Chỉ thêm được " + (j - conlai) + " DVD");
+				System.out.println("Chi them duoc " + (j - conlai) + " DVD");
 		}
 	}
 	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
@@ -47,6 +47,21 @@ public class Cart {
 		}
 	}
 	
+	public void addDigitalVideoDisc(DigitalVideoDisc dvd1,DigitalVideoDisc dvd2) {
+		if (qtyOrdered < 20)
+		{
+			itemsOrdered[qtyOrdered] = dvd1;
+			System.out.println("Đĩa đã được thêm vào!");
+			qtyOrdered ++;
+			if (qtyOrdered == 19) {
+				itemsOrdered[qtyOrdered] = dvd1;
+				System.out.println("Đĩa đã được thêm vào!");
+				qtyOrdered ++;
+			}		
+		}
+		else
+			System.out.println("Giỏ hàng đã đầy rồi!");
+	}
 	public void Display() {
 		for (int i = 0;i < qtyOrdered;i ++)
 			System.out.println(itemsOrdered[i].getTitle());
