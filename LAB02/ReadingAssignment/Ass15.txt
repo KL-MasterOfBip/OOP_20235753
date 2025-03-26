@@ -1,0 +1,1 @@
+	- Java là ngôn ngữ lập trình Pass by Value (truyền tham trị), không phải Pass by Reference (truyền tham chiếu) vì Java cho chuyền bản sao của tham chiếu mà không phải chính tham chiếu gốc hay không thể thay đổi tham chiếu gốc chiếu đến một đối tượng mới
