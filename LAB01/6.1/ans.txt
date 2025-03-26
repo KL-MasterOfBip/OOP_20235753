@@ -1,0 +1,41 @@
+Questions:
+- What happens if users choose “Cancel”?
+
+=> Ans: Nếu người dung chọn Cancel, màn hình sẽ hiển thị là "You've chosen: No", vì chương trình chỉ có kết quả 2 trạng thái là Yes hoặc No
+
+- How to customize the options to users, e.g. only two options: “Yes” and “No”, OR “I do” and “I don’t” (Suggestion: Use Javadocs or using Eclipse/Netbean IDE help)
+
+public static void main(String[] args) {
+        int option = JOptionPane.showConfirmDialog(null, 
+                "Do you want to change to the first class ticket?", 
+                "Confirmation", 
+                JOptionPane.YES_NO_OPTION); // Ta chỉnh chỉ cho hiển thị 2 phương lựa chọn bằng tinh chính biến option
+
+        JOptionPane.showMessageDialog(null, "You've chosen: " + 
+                (option == JOptionPane.YES_OPTION ? "Yes" : "No"));
+
+        System.exit(0);
+
+
+Hoặc nếu muốn điều chỉnh về cách ô lựa chọn thì ta sẽ cần truy cập thêm vào thư viện javax.swing.UIManager:
+
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+
+public class ChoosingOption {
+    public static void main(String[] args) {
+       
+        UIManager.put("OptionPane.yesButtonText", "I do"); //Thay yes -> I do
+        UIManager.put("OptionPane.noButtonText", "I don't"); //Thay no -> I don't
+
+        int option = JOptionPane.showConfirmDialog(null, 
+                "Do you agree with the statement?", 
+                "Confirmation", 
+                JOptionPane.YES_NO_OPTION);
+
+        JOptionPane.showMessageDialog(null, "You've chosen: " + 
+                (option == JOptionPane.YES_OPTION ? "I do" : "I don't"));
+
+        System.exit(0); // Kết thúc chương trình
+    }
+}
